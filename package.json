@@ -1,0 +1,14 @@
+{
+  "name": "portfolio_v1",
+  "version": "1.0.0",
+  "description": "Rahul Debnath Portfolio",
+  "main": "index.html",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [],
+  "author": "Rahul Debnath",
+  "license": "ISC"
+}
