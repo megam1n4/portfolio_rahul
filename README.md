@@ -1,5 +1,7 @@
 # Rahul Debnath Portfolio
 
+Live site: https://megam1n4.github.io/portfolio_rahul/
+
 A professional, data-driven portfolio website for Rahul Debnath, focused on AI-enabled geospatial analytics, IoT systems, transportation resilience, and research experience.
 
 This project presents academic work, professional experience, technical skills, achievements, and public profiles in a polished single-page layout with smooth scrolling, reveal animations, and dark/light theme support.
