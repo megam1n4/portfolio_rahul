@@ -29,8 +29,24 @@
                 <button id="theme-toggle" aria-label="Toggle Dark/Light Mode">
                     <i class="fas fa-moon"></i>
                 </button>
+                <button id="menu-toggle" class="mobile-menu-btn" aria-label="Open Menu">
+                    <i class="fas fa-bars"></i>
+                </button>
             </div>
         </div>
+        <!-- Mobile Navigation Menu -->
+        <div class="mobile-nav" id="mobile-nav">
+            <button class="mobile-close-btn" id="menu-close"><i class="fas fa-times"></i></button>
+            <div class="mobile-nav-links">
+                <a href="#about">About</a>
+                <a href="#experience">Experience</a>
+                <a href="#skills">Skills</a>
+                <a href="#education">Education</a>
+                <a href="#achievements">Achievements</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+        <div class="mobile-overlay" id="mobile-overlay"></div>
     </nav>
 
     <header id="hero" class="container">
@@ -38,7 +54,7 @@
             <div class="hero-text" data-reveal>
                 <h1 id="hero-name">Rahul Debnath</h1>
                 <div class="hero-actions">
-                    <a href="#about" class="cta-button primary">Explore My Work</a>
+                    <a href="#about" class="cta-button secondary">Explore My Work</a>
                     <a href="#contact" class="cta-button secondary">Get in Touch</a>
                 </div>
             </div>
@@ -120,11 +136,11 @@
                     <p>Always open to collaboration on AI, IoT, and Geospatial projects.</p>
                 </div>
                 <div class="contact-methods" style="display: flex; justify-content: flex-start; gap: 1.5rem; flex-wrap: wrap; margin-top: 2rem;">
-                    <a href="mailto:rdebnath086@gmail.com" class="profile-btn">
-                        <i class="fas fa-envelope"></i> rdebnath086@gmail.com
+                    <a href="#" id="contact-email" class="profile-btn">
+                        <i class="fas fa-envelope"></i> <span id="contact-email-text"></span>
                     </a>
-                    <a href="tel:9796450705" class="profile-btn">
-                        <i class="fas fa-phone"></i> (979)-645-0705
+                    <a href="#" id="contact-phone" class="profile-btn">
+                        <i class="fas fa-phone"></i> <span id="contact-phone-text"></span>
                     </a>
                 </div>
             </section>

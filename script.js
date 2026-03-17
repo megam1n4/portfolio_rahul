@@ -12,18 +12,80 @@ document.addEventListener('DOMContentLoaded', () => {
     updateThemeIcon(savedTheme === 'light-mode');
 
     themeToggle.addEventListener('click', () => {
-        const isLight = body.classList.toggle('light-mode');
-        body.classList.toggle('dark-mode', !isLight);
-        localStorage.setItem('theme', isLight ? 'light-mode' : 'dark-mode');
-        updateThemeIcon(isLight);
+        const isLight = body.classList.contains('light-mode');
+        if (isLight) {
+            body.classList.remove('light-mode');
+            body.classList.add('dark-mode');
+            localStorage.setItem('theme', 'dark-mode');
+            updateThemeIcon(false);
+        } else {
+            body.classList.remove('dark-mode');
+            body.classList.add('light-mode');
+            localStorage.setItem('theme', 'light-mode');
+            updateThemeIcon(true);
+        }
     });
 
     function updateThemeIcon(isLight) {
         icon.className = isLight ? 'fas fa-sun' : 'fas fa-moon';
     }
 
+    // Dynamic Metadata Population
+    document.title = `${resumeData.name} | Portfolio`;
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) metaDesc.setAttribute('content', `Portfolio of ${resumeData.name}. ${resumeData.summary.substring(0, 150)}...`);
+
+
+    // Mobile Menu Logic
+    const menuToggle = document.getElementById('menu-toggle');
+    const menuClose = document.getElementById('menu-close');
+    const mobileNav = document.getElementById('mobile-nav');
+    const mobileOverlay = document.getElementById('mobile-overlay');
+
+    function toggleMenu(show) {
+        mobileNav.classList.toggle('open', show);
+        mobileOverlay.classList.toggle('active', show);
+        document.body.style.overflow = show ? 'hidden' : '';
+    }
+
+    menuToggle.addEventListener('click', () => toggleMenu(true));
+    menuClose.addEventListener('click', () => toggleMenu(false));
+    mobileOverlay.addEventListener('click', () => toggleMenu(false));
+
+    // Close menu when clicking a link
+    document.querySelectorAll('.mobile-nav-links a').forEach(link => {
+        link.addEventListener('click', () => toggleMenu(false));
+    });
+
     // Populate Hero
-    document.getElementById('hero-name').textContent = resumeData.name;
+    // Populate Hero with split spans for animation
+    const heroName = document.getElementById('hero-name');
+    const nameParts = resumeData.name.split(' ');
+    heroName.innerHTML = `<span class="first-name">${nameParts[0]}</span> <span class="last-name">${nameParts[1]}</span>`;
+    
+    const firstName = heroName.querySelector('.first-name');
+    const lastName = heroName.querySelector('.last-name');
+
+    // Name Scroll Animation
+    window.addEventListener('scroll', () => {
+        const scrollPos = window.scrollY;
+        // Animation range: 0 to 400px scroll
+        const progress = Math.min(scrollPos / 400, 1);
+        const opacity = 1 - progress;
+        const scale = 1 + (progress * 0.5);
+        
+        // Cap move distance on mobile to prevent extreme overflow
+        const maxMove = window.innerWidth < 768 ? 80 : 150;
+        const move = progress * maxMove;
+
+        if (firstName && lastName) {
+            firstName.style.transform = `translateX(-${move}px) scale(${scale})`;
+            firstName.style.opacity = opacity;
+            
+            lastName.style.transform = `translateX(${move}px) scale(${scale})`;
+            lastName.style.opacity = opacity;
+        }
+    }, { passive: true });
     // Hero summary removed as per request
     
     // Populate About
@@ -122,6 +184,16 @@ document.addEventListener('DOMContentLoaded', () => {
     if (document.getElementById('github-link')) document.getElementById('github-link').href = 'https://' + resumeData.contact.github;
     if (document.getElementById('scholar-link')) document.getElementById('scholar-link').href = 'https://' + resumeData.contact.googleScholar;
     if (document.getElementById('email-link')) document.getElementById('email-link').href = `mailto:${resumeData.contact.email}`;
+    
+    // Populate Contact Section
+    if (document.getElementById('contact-email')) {
+        document.getElementById('contact-email').href = `mailto:${resumeData.contact.email}`;
+        document.getElementById('contact-email-text').textContent = resumeData.contact.email;
+    }
+    if (document.getElementById('contact-phone')) {
+        document.getElementById('contact-phone').href = `tel:${resumeData.contact.phone.replace(/[^0-9+]/g, '')}`;
+        document.getElementById('contact-phone-text').textContent = resumeData.contact.phone;
+    }
 
 
     // Custom Smooth Scroll for Anchor Links
@@ -181,9 +253,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.querySelectorAll('[data-reveal]').forEach(el => observer.observe(el));
 
-    // Logo Click Scroll to Top (using the same smooth behavior)
-    if (document.querySelector('.logo')) {
-        document.querySelector('.logo').addEventListener('click', (e) => {
+    // Logo Click Scroll to Top
+    const logo = document.querySelector('.logo');
+    if (logo) {
+        logo.addEventListener('click', (e) => {
             e.preventDefault();
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
