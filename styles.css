@@ -5,7 +5,8 @@
   --text-color: #e0e0e0;
   --secondary-text: #a0a0a0;
   --accent-color: #3b82f6;
-  --card-bg: #121215; /* Fully opaque to prevent render bugs */
+  --card-bg: #121215;
+  /* Fully opaque to prevent render bugs */
   --border-color: rgba(255, 255, 255, 0.08);
   --hover-bg: rgba(255, 255, 255, 0.03);
   --font-family: "Outfit", sans-serif;
@@ -21,7 +22,8 @@ body.light-mode {
   --bg-color: #f5f7fa;
   --text-color: #1a1a1b;
   --secondary-text: #4a5568;
-  --card-bg: #ffffff; /* Fully opaque */
+  --card-bg: #ffffff;
+  /* Fully opaque */
   --border-color: rgba(0, 0, 0, 0.08);
   --hover-bg: rgba(0, 0, 0, 0.03);
   --card-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
@@ -37,7 +39,8 @@ body.light-mode {
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 100px; /* Offset for sticky header */
+  scroll-padding-top: 100px;
+  /* Offset for sticky header */
 }
 
 body {
@@ -65,7 +68,8 @@ body {
   display: flex;
   align-items: center;
   transition: background-color 0.3s ease;
-  transform: translate3d(0, 0, 0); /* Hardware acceleration */
+  transform: translate3d(0, 0, 0);
+  /* Hardware acceleration */
   -webkit-transform: translate3d(0, 0, 0);
 }
 
@@ -173,7 +177,8 @@ body.dark-mode .logo {
   font-size: 1.1rem;
   transition: all 0.3s ease;
   position: relative;
-  z-index: 1001; /* Above nav-bar, below mobile-nav */
+  z-index: 1001;
+  /* Above nav-bar, below mobile-nav */
 }
 
 .mobile-menu-btn:hover {
@@ -275,7 +280,8 @@ header#hero {
   flex-direction: column;
   align-items: center;
   width: 100%;
-  overflow: hidden; /* Prevent animation from causing horizontal scroll */
+  overflow: hidden;
+  /* Prevent animation from causing horizontal scroll */
   padding: 20px 0;
 }
 
@@ -431,7 +437,8 @@ body.dark-mode .section-card .section-header h2 {
 }
 
 .section-header {
-  margin-bottom: 2rem; /* Reduced from 4rem */
+  margin-bottom: 2rem;
+  /* Reduced from 4rem */
 }
 
 .section-header h2 {
@@ -528,7 +535,8 @@ body.dark-mode .section-card .section-header h2 {
 .skill-category h4 {
   margin-bottom: 0;
   font-size: 1rem;
-  width: 200px; /* Fixed width for alignment */
+  width: 200px;
+  /* Fixed width for alignment */
   max-width: 100%;
   flex-shrink: 0;
   color: var(--accent-color);
@@ -559,7 +567,8 @@ body.dark-mode .section-card .section-header h2 {
 
 /* Education & Achievements - COMPACT */
 .edu-item {
-  margin-bottom: 2rem; /* Reduced from 4rem */
+  margin-bottom: 2rem;
+  /* Reduced from 4rem */
 }
 
 .edu-item h3 {
@@ -659,7 +668,8 @@ body.dark-mode .section-card .section-header h2 {
 
 /* Footer & Social - COMPACT */
 footer {
-  padding: 4rem 0 3rem; /* Reduced from 10rem top */
+  padding: 4rem 0 3rem;
+  /* Reduced from 10rem top */
 }
 
 .copyright {
@@ -681,7 +691,8 @@ body.light-mode .copyright {
 }
 
 .social-links a {
-  font-size: 2rem; /* Reduced from 2.5rem */
+  font-size: 2rem;
+  /* Reduced from 2.5rem */
   color: var(--secondary-text);
   transition: all 0.3s ease;
 }
@@ -696,7 +707,8 @@ body.light-mode .copyright {
   opacity: 0;
   transform: translateY(15px);
   transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
-  will-change: transform, opacity; /* Hardware acceleration */
+  will-change: transform, opacity;
+  /* Hardware acceleration */
 }
 
 [data-reveal].active {
@@ -711,13 +723,16 @@ body.light-mode .copyright {
     text-align: center;
     gap: 4rem;
   }
+
   .hero-actions {
     justify-content: center;
   }
+
   .two-col-grid {
     grid-template-columns: 1fr;
     gap: 4rem;
   }
+
   .profile-img-container {
     flex: 0 0 320px;
     height: 320px;
@@ -728,29 +743,37 @@ body.light-mode .copyright {
   .section-card {
     padding: 2rem 1.5rem;
   }
+
   .nav-links {
     display: none;
   }
+
   .mobile-menu-btn {
     display: flex;
   }
+
   .nav-right {
     gap: 0.8rem;
   }
+
   .skill-category {
     gap: 1rem;
   }
+
   .skill-category h4 {
     width: 100%;
     margin-bottom: 0.5rem;
   }
+
   .exp-header {
     flex-direction: column;
   }
+
   .exp-period {
     margin-top: 0.2rem;
     font-size: 0.9rem;
   }
+
   .hero-actions {
     flex-direction: column;
     width: 100%;
@@ -763,16 +786,20 @@ body.light-mode .copyright {
   .nav-bar {
     height: 65px;
   }
+
   .nav-content {
     width: 94%;
   }
+
   .nav-right {
     gap: 0.4rem;
   }
+
   .logo {
     font-size: 1.3rem;
     margin-right: 0.3rem;
   }
+
   #theme-toggle,
   .mobile-menu-btn {
     width: 40px;
@@ -781,17 +808,21 @@ body.light-mode .copyright {
     flex-shrink: 0;
     margin: 0;
   }
+
   .hero-text h1 {
     font-size: 2rem;
     margin-bottom: 1.5rem;
   }
+
   .section-header h2 {
     font-size: 1.6rem;
   }
+
   .profile-img-container {
     width: 220px;
     height: 280px;
   }
+
   .hero-content {
     gap: 1.5rem;
   }
